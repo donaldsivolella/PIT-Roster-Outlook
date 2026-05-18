@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2027 Roster Outlook — Pittsburgh Pirates</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#FDB827;--black:#27251F;--gold-dark:#E8A820;
+  --border:#DDDDDD;--gray:#F7F7F7;
+  --fa-red:#E24B4A;
+  --arb-green:#639922;--arb-green-bg:#EAF3DE;
+  --arb-proj-bg:#C0DD97;--arb-proj-text:#27500A;
+  --sal-blue-bg:#E6F1FB;--sal-blue-text:#0C447C;
+  --raise-bg:#EEEDFE;--raise-text:#3C3489;
+  --ooo-hi:#FFF3C0;--ooo-hi-text:#854F0B;
+  --ooo-curr-bg:#FCEBEB;--ooo-curr-text:#A32D2D;
+  --nt-badge-1:#E24B4A;--nt-badge-2:#BA7517;--nt-badge-3:#888780;
+  --nt1-bg:#FCEBEB;--nt1-fg:#A32D2D;
+  --nt2-bg:#FAEEDA;--nt2-fg:#633806;
+  --nt3-bg:#F1EFE8;--nt3-fg:#444441;
+  --link:#1a4fa0;
+}
+body{font-family:sans-serif;font-size:12px;background:#e8e8e8;padding:16px}
+.wrap{max-width:1100px;margin:0 auto;background:white;border-radius:6px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.18)}
+.top-bar{background:var(--black);color:var(--gold);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:4px solid var(--gold)}
+.top-bar h1{font-size:18px;font-weight:700;letter-spacing:1px}
+.top-bar span{font-size:10px;color:#aaa;letter-spacing:.5px}
+.section{margin:16px 14px 0}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.sec-head h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--black);border-bottom:2.5px solid var(--gold);padding-bottom:3px}
+.add-btn{font-size:10px;background:var(--gold);color:var(--black);border:none;padding:3px 10px;border-radius:3px;cursor:pointer;font-weight:700}
+.add-btn:hover{background:var(--gold-dark)}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:11px}
+thead tr{background:var(--black);color:var(--gold)}
+thead th{padding:5px 7px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.3px;white-space:nowrap}
+thead th.L{text-align:left}
+tbody tr:nth-child(even){background:var(--gray)}
+tbody tr:hover{background:#fffbe6}
+tbody tr.totals{background:var(--gold-dark)!important;font-weight:700}
+tbody tr.grp-lbl td{background:#f0f0f0!important;font-size:9px;color:#777;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 6px;border:.5px solid var(--border);text-align:center}
+td{padding:4px 6px;text-align:center;border:.5px solid var(--border);vertical-align:middle}
+td.L{text-align:left}
+td[contenteditable="true"]:focus{background:#fffde0;outline:2px solid var(--gold);outline-offset:-1px}
+td[contenteditable="true"]{cursor:text;outline:none}
+.del{background:none;border:none;cursor:pointer;color:#ccc;font-size:13px;padding:0 3px}
+.del:hover{color:#c0392b}
+.c-fa{background:var(--fa-red)!important;color:#fff!important;font-weight:700}
+.c-arb{background:var(--arb-green-bg)!important;color:var(--arb-green)!important;font-weight:600}
+.c-proj{background:var(--arb-proj-bg)!important;color:var(--arb-proj-text)!important;font-weight:700}
+.c-sal{background:var(--sal-blue-bg)!important;color:var(--sal-blue-text)!important}
+.c-ip{color:#999;font-style:italic}
+.c-raise{background:var(--raise-bg)!important;color:var(--raise-text)!important;font-weight:600}
+.c-ooo-hi{background:var(--ooo-hi)!important;color:var(--ooo-hi-text)!important;font-weight:700}
+.c-ooo-curr{background:var(--ooo-curr-bg)!important;color:var(--ooo-curr-text)!important;font-weight:700}
+.two-col-eq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin:16px 14px 0}
+.three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 14px 0}
+.sub h2{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--black);border-bottom:2px solid var(--gold);padding-bottom:2px;margin-bottom:5px}
+.sub-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.ooo-left{display:flex;flex-direction:column;gap:10px}
+.footnote{font-size:9.5px;color:#666;font-style:italic;margin:5px 14px 0;padding:4px 8px;background:#fafafa;border-left:3px solid var(--gold);line-height:1.9;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.fn-swatch{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:2px;font-style:normal;white-space:nowrap}
+.fn-gold{background:var(--gold);color:var(--black)}
+.fn-proj{background:var(--arb-proj-bg);color:var(--arb-proj-text)}
+.fn-sal{background:var(--sal-blue-bg);color:var(--sal-blue-text)}
+.fn-ooo-hi{background:var(--ooo-hi);color:var(--ooo-hi-text)}
+.fn-text{font-style:italic;color:#666;font-size:9.5px}
+.toolbar{display:flex;gap:8px;padding:12px 14px;background:#f9f9f9;border-top:1px solid var(--border);margin-top:16px;flex-wrap:wrap;align-items:center}
+.tbtn{font-size:11px;font-weight:700;padding:6px 14px;border-radius:4px;cursor:pointer;border:1.5px solid var(--black);background:var(--black);color:var(--gold);letter-spacing:.4px}
+.tbtn:hover{background:#444}
+.tbtn.sec{background:white;color:var(--black)}
+.tbtn.sec:hover{background:#f0f0f0}
+#copy-status{font-size:11px;color:var(--arb-green);font-weight:700;display:none;margin-left:6px}
+#export-box{display:none;margin:10px 14px;background:#f9f9f9;border:1px solid var(--border);border-radius:4px;padding:10px}
+#export-box .box-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+#export-box .box-head span{font-size:11px;font-weight:700;color:var(--black)}
+#export-box .close-btn{font-size:10px;background:none;border:none;cursor:pointer;color:#999}
+#export-box textarea{width:100%;height:200px;font-size:10px;font-family:monospace;border:1px solid var(--border);padding:6px;resize:vertical;border-radius:3px}
+.tier-badge{display:inline-block;font-size:9px;font-weight:700;padding:1px 7px;border-radius:10px;color:#fff;margin-right:4px;vertical-align:middle}
+.t1{background:var(--nt-badge-1)}.t2{background:var(--nt-badge-2)}.t3{background:var(--nt-badge-3)}
+.nt-row-1 td{background:#FDF5F5!important;color:var(--nt1-fg)!important}
+.nt-row-2 td{background:#FDFAF3!important;color:var(--nt2-fg)!important}
+.nt-row-3 td{background:#F9F9F7!important;color:var(--nt3-fg)!important}
+.nt-tag{display:inline-block;font-size:8px;font-weight:700;padding:1px 5px;border-radius:3px;background:#fff8e1;color:#854F0B;border:1px solid #E8A820;margin-left:4px;vertical-align:middle}
+a.plink{color:var(--link);text-decoration:none}
+a.plink:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top-bar">
+  <h1>⬡ 2027 ROSTER OUTLOOK</h1>
+  <span>PITTSBURGH PIRATES — INTERNAL / CONFIDENTIAL</span>
+</div>
+
+<!-- ARB CLASS -->
+<div class="section">
+  <div class="sec-head"><h2>2027 Arbitration Class</h2><button class="add-btn" onclick="addArb()">+ Add Player</button></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr>
+      <th class="L" style="min-width:150px">Name</th>
+      <th>'26 OD MLS</th><th>MLS Needed</th><th>Arb Class</th>
+      <th>'26 Salary</th><th>Raise</th><th>'27 Proj.</th><th style="width:26px"></th>
+    </tr></thead>
+    <tbody id="arb-body"></tbody>
+    <tfoot><tr class="totals">
+      <td colspan="4" class="L"><b>TOTALS</b></td>
+      <td contenteditable="true">$14.60M</td>
+      <td contenteditable="true" class="c-raise">$21.64M</td>
+      <td contenteditable="true">$36.24M</td>
+      <td></td>
+    </tr></tfoot>
+  </table></div>
+  <div class="footnote">
+    <span class="fn-text">* Super Two &nbsp;|&nbsp; <b>Bold</b> = Currently OOO &nbsp;|&nbsp;</span>
+    <span class="fn-swatch fn-gold"><b>Gold name</b></span>
+    <span class="fn-text">= NT candidate &nbsp;|&nbsp; BBO Arb Projections &nbsp;|&nbsp; S2 Cutoff: 2.130 &nbsp;|&nbsp; Total class raise: $21.64M</span>
+  </div>
+</div>
+
+<!-- NON-TENDER -->
+<div class="section">
+  <div class="sec-head"><h2>Non-Tender Candidates</h2><button class="add-btn" onclick="addNt()">+ Add Player</button></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr>
+      <th class="L">Tier</th><th class="L" style="min-width:130px">Name</th>
+      <th>Time Eligible</th><th>'27 Proj. Salary</th><th>Notes</th><th style="width:26px"></th>
+    </tr></thead>
+    <tbody id="nt-body"></tbody>
+  </table></div>
+  <div class="footnote">
+    <span class="tier-badge t1">Tier 1</span><span class="fn-text">Likely non-tender &nbsp;|&nbsp;</span>
+    <span class="tier-badge t2">Tier 2</span><span class="fn-text">Borderline &nbsp;|&nbsp;</span>
+    <span class="tier-badge t3">Tier 3</span><span class="fn-text">Worth monitoring</span>
+  </div>
+</div>
+
+<!-- OOO -->
+<div class="two-col-eq">
+  <div class="ooo-left">
+    <div class="sub">
+      <div class="sub-head"><h2>2026 Current OOO</h2><button class="add-btn" onclick="addOoo('ooo-curr-body',true)">+ Add</button></div>
+      <table><thead><tr><th class="L">Name</th><th>Options</th><th style="width:26px"></th></tr></thead><tbody id="ooo-curr-body"></tbody></table>
+    </div>
+    <div class="sub" style="margin-top:10px">
+      <div class="sub-head"><h2>2027 Potential OOO</h2><button class="add-btn" onclick="addOoo('ooo27-body',false)">+ Add</button></div>
+      <table><thead><tr><th class="L">Name</th><th>Options</th><th style="width:26px"></th></tr></thead><tbody id="ooo27-body"></tbody></table>
+    </div>
+  </div>
+  <div class="sub">
+    <div class="sub-head"><h2>2028 Potential OOO</h2><button class="add-btn" onclick="addOoo('ooo28-body',false)">+ Add</button></div>
+    <table><thead><tr><th class="L">Name</th><th>Options</th><th style="width:26px"></th></tr></thead><tbody id="ooo28-body"></tbody></table>
+    <div class="footnote" style="margin:4px 0 0">
+      <span class="fn-swatch fn-ooo-hi">Highlighted</span>
+      <span class="fn-text">= &gt;20 days on option through 5.13.26 — reflects 2027 option status</span>
+    </div>
+  </div>
+</div>
+
+<!-- MLFA -->
+<div class="section">
+  <div class="sec-head"><h2>MLFA Outlook</h2><button class="add-btn" onclick="addMlfa()">+ Add</button></div>
+  <div class="tbl-wrap"><table style="table-layout:fixed;width:100%">
+    <thead><tr>
+      <th class="L" style="width:160px">Name</th>
+      <th style="width:90px">2027</th><th style="width:75px">2028</th>
+      <th style="width:75px">2029</th><th style="width:75px">2030</th>
+      <th style="width:26px"></th>
+    </tr></thead>
+    <tbody id="mlfa-body"></tbody>
+  </table></div>
+  <div class="footnote">
+    <span class="fn-text"><b>FA</b> = Free Agent year &nbsp;|&nbsp;</span>
+    <span class="fn-swatch fn-proj">$X.XXM *</span>
+    <span class="fn-text">= BBO Arb projection &nbsp;|&nbsp;</span>
+    <span class="fn-swatch fn-sal">$X.XXM</span>
+    <span class="fn-text">= Guaranteed salary &nbsp;|&nbsp; Sorted by FA year within each group</span>
+  </div>
+</div>
+
+<!-- R5 + MNFA -->
+<div class="three-col">
+  <div class="sub">
+    <div class="sub-head"><h2>2026 R5 Eligibles</h2><button class="add-btn" onclick="addSimple('r5-body')">+ Add</button></div>
+    <table><thead><tr><th class="L">Name</th><th style="width:26px"></th></tr></thead><tbody id="r5-body"></tbody></table>
+  </div>
+  <div class="sub">
+    <div class="sub-head"><h2>2026 MNFA — First Time</h2><button class="add-btn" onclick="addSimple('mnfa-ft-body')">+ Add</button></div>
+    <table><thead><tr><th class="L">Name</th><th style="width:26px"></th></tr></thead><tbody id="mnfa-ft-body"></tbody></table>
+  </div>
+  <div class="sub">
+    <div class="sub-head"><h2>2026 MNFA — Prior MNFA</h2><button class="add-btn" onclick="addSimple('mnfa-25-body')">+ Add</button></div>
+    <table><thead><tr><th class="L">Name</th><th style="width:26px"></th></tr></thead><tbody id="mnfa-25-body"></tbody></table>
+  </div>
+</div>
+<div class="footnote"><span class="fn-text">R5 Tier 1 = Likely protect (<b>Bold</b>) &nbsp;|&nbsp; Tier 2 = Borderline &nbsp;|&nbsp; Tier 3 = Monitor &nbsp;|&nbsp; <b>Bold</b> (MNFA) = higher priority &nbsp;|&nbsp; R5 Eligibles who are also MNFA-eligible are listed in MNFA only</span></div>
+
+<div class="toolbar">
+  <button class="tbtn" onclick="doExport()">Copy Data</button>
+  <span id="copy-status">Copied!</span>
+  <button class="tbtn" onclick="showExportBox()">Show Data</button>
+</div>
+<div id="export-box">
+  <div class="box-head">
+    <span>Select all &amp; copy, then paste into chat to share with Claude</span>
+    <button class="close-btn" onclick="document.getElementById('export-box').style.display='none'">✕ Close</button>
+  </div>
+  <textarea id="export-text" readonly></textarea>
+</div>
+</div>
+
+<script>
+const URLS={"Enmanuel Valdez":"https://bridge.pirates.net/#/player/enmanuel-valdez/113046/stats","Endy Rodriguez":"https://bridge.pirates.net/#/player/endy-rodriguez/126205/stats","Yohan Ramirez":"https://bridge.pirates.net/#/player/yohan-ramirez/114457/stats","Chris Devenski":"https://bridge.pirates.net/#/player/christopher-devenski/86201/stats","Nick Gonzales":"https://bridge.pirates.net/#/player/nick-gonzales/124908/stats","Marcell Ozuna":"https://bridge.pirates.net/#/player/marcell-ozuna/10407/stats","Mitch Keller":"https://bridge.pirates.net/#/player/mitch-keller/105351/stats","Nick Yorke":"https://bridge.pirates.net/#/player/nicholas-yorke/127691/stats","Joey Bart":"https://bridge.pirates.net/#/player/joey-bart/105381/stats","Jared Jones":"https://bridge.pirates.net/#/player/jared-jones/126748/stats","Tyler Callihan":"https://bridge.pirates.net/#/player/tyler-callihan/126075/stats","Evan Sisk":"https://bridge.pirates.net/#/player/evan-sisk/121220/stats","Thomas Harrington":"https://bridge.pirates.net/#/player/thomas-harrington/211265/stats","Billy Cook":"https://bridge.pirates.net/#/player/billy-cook/138144/stats","Jared Triolo":"https://bridge.pirates.net/#/player/jared-triolo/113342/stats","Jhostynxon Garcia":"https://bridge.pirates.net/#/player/jhostynxon-garcia/124750/stats","Mason Montgomery":"https://bridge.pirates.net/#/player/mason-montgomery/124793/stats","Ryan O'Hearn":"https://bridge.pirates.net/#/player/ryan-o'hearn/96529/stats","Braxton Ashcraft":"https://bridge.pirates.net/#/player/braxton-ashcraft/117555/stats","Justin Lawrence":"https://bridge.pirates.net/#/player/justin-lawrence/112806/stats","Justin Lawrence *":"https://bridge.pirates.net/#/player/justin-lawrence/112806/stats","Isaac Mattson":"https://bridge.pirates.net/#/player/isaac-mattson/119937/stats","Henry Davis":"https://bridge.pirates.net/#/player/henry-davis/118109/stats","Oneil Cruz":"https://bridge.pirates.net/#/player/oneil-cruz/113290/stats","Jose Urquidy":"https://bridge.pirates.net/#/player/jose-urquidy/106923/stats","Gregory Soto":"https://bridge.pirates.net/#/player/gregory-soto/97010/stats","Cam Sanders":"https://bridge.pirates.net/#/player/cameron-sanders/106355/stats","Carmen Mlodzinski":"https://bridge.pirates.net/#/player/carmen-mlodzinski/115292/stats","Spencer Horwitz":"https://bridge.pirates.net/#/player/spencer-horwitz/126804/stats","Spencer Horwitz *":"https://bridge.pirates.net/#/player/spencer-horwitz/126804/stats","Dennis Santana":"https://bridge.pirates.net/#/player/dennis-santana/94883/stats","Paul Skenes":"https://bridge.pirates.net/#/player/paul-skenes/132705/stats","Brandon Lowe":"https://bridge.pirates.net/#/player/brandon-lowe/106850/stats","Axiel Plaz":"https://bridge.pirates.net/#/player/axiel-plaz/137914/stats","Khristian Curtis":"https://bridge.pirates.net/#/player/khristian-curtis/133884/stats","Termarr Johnson":"https://bridge.pirates.net/#/player/termarr-johnson/132355/stats","Cy Nielson":"https://bridge.pirates.net/#/player/cy-nielson/126955/stats","Mitch Jebb":"https://bridge.pirates.net/#/player/mitchell-jebb/132505/stats","Tony Blanco":"https://bridge.pirates.net/#/player/tony-blanco/197602/stats","Yordany De Los Santos":"https://bridge.pirates.net/#/player/yordany-de%20los%20santos/212420/stats","Alessandro Ercolani":"https://bridge.pirates.net/#/player/alessandro-ercolani/133983/stats","Justin Meis":"https://bridge.pirates.net/#/player/justin-meis/197528/stats","Keiner Delgado":"https://bridge.pirates.net/#/player/keiner-delgado/203681/stats","Michael Darrell-Hicks":"https://bridge.pirates.net/#/player/michael-darrell-hicks/138148/stats","Nick Cimillo":"https://bridge.pirates.net/#/player/nick-cimillo/149979/stats","Isaias Uribe":"https://bridge.pirates.net/#/player/isaias-uribe/135220/stats","Javier Rivas":"https://bridge.pirates.net/#/player/javier-rivas/125502/stats","Jesus Castillo":"https://bridge.pirates.net/#/player/jesus-castillo/128731/stats","Omar Alfonzo":"https://bridge.pirates.net/#/player/omar-alfonzo/128450/stats","Ryan Harbin":"https://bridge.pirates.net/#/player/ryan-harbin/131965/stats","Beau Burrows":"https://bridge.pirates.net/#/player/beau-burrows/98858/stats","Carson Fulmer":"https://bridge.pirates.net/#/player/carson-fulmer/91599/stats","Davis Wendzel":"https://bridge.pirates.net/#/player/davis-wendzel/124503/stats","Dom Fletcher":"https://bridge.pirates.net/#/player/dominic-fletcher/113624/stats","Dom Pipkin":"https://bridge.pirates.net/#/player/dominic-fletcher/113624/stats","Jarod Bayless":"https://bridge.pirates.net/#/player/jarod-bayless/100249/stats","Joe La Sorsa":"https://bridge.pirates.net/#/player/joseph-la%20sorsa/126801/stats","Michael Clevinger":"https://bridge.pirates.net/#/player/michael-clevinger/89472/stats","Noah Davis":"https://bridge.pirates.net/#/player/noah-davis/101533/stats","Noah Murdock":"https://bridge.pirates.net/#/player/noah-murdock/100478/stats","Oddanier Mosqueda":"https://bridge.pirates.net/#/player/oddanier-mosqueda/113217/stats","PJ Hilson":"https://bridge.pirates.net/#/player/pj-hilson/119628/stats","Ronny Simon":"https://bridge.pirates.net/#/player/ronny-simon/126483/stats"};
+
+const NT_PLAYERS=new Set(["Justin Lawrence","Justin Lawrence *","Yohan Ramirez","Joey Bart","Nick Gonzales"]);
+const ARB_OOO=new Set(["Oneil Cruz","Yohan Ramirez","Justin Lawrence *","Joey Bart"]);
+
+const ARB_DATA=[["Joey Bart","4.020","—","ARB-3","$2.53M","+$0.65M","$3.18M"],["Justin Lawrence *","3.167","—","ARB-3","$1.23M","+$0.50M","$1.73M"],["Yohan Ramirez","3.135","—","ARB-2","$0.83M","+$0.63M","$1.45M"],["Oneil Cruz","3.110","—","ARB-2","$3.30M","+$3.20M","$6.50M"],["Carmen Mlodzinski","2.081","86","ARB-1","$0.81M","+$1.29M","$2.10M"],["Endy Rodriguez","2.077","86","ARB-1","$0.80M","+$0.09M","$0.89M"],["Jared Triolo","2.071","86","ARB-1","$0.82M","+$1.18M","$2.00M"],["Henry Davis","2.039","~91","ARB-1","$0.80M","+$0.75M","$1.55M"],["Nick Gonzales","2.018","~112","ARB-1","$0.80M","+$1.10M","$1.90M"],["Paul Skenes","2.000","~130","ARB-1","$0.80M","+$10.20M","$11.00M"],["Jared Jones","2.000","~130","ARB-1","$1.09M","+$0.66M","$1.75M"],["Spencer Horwitz *","1.152","~150","ARB-1","$0.80M","+$1.40M","$2.20M"]];
+const NT_DATA=[[1,"Joey Bart","3","$3.18M","Declining production, C alternatives"],[1,"Justin Lawrence","3","$1.73M","RHR alternatives at lower cost"],[1,"Yohan Ramirez","2","$1.45M","RHR alternatives at lower cost"],[2,"Nick Gonzales","1","$1.90M","RHH IF alternatives, fringe performer"],[3,"Henry Davis","1","$1.55M","Simply flagging - unlikely NT"],[3,"Endy Rodriguez","1","$0.89M","Potential to retain pre-arb status"],[3,"Jared Triolo","1","$2.00M","Simply flagging - unlikely NT"]];
+const OOO_CURR=[["Yohan Ramirez","3/3"],["Justin Lawrence","3/3"],["Oneil Cruz","3/3"],["Joey Bart","3/3"]];
+const OOO27=[["Braxton Ashcraft","2/3"],["Carmen Mlodzinski","2/3"],["Jared Triolo","2/3"],["Nick Gonzales","2/3"],["Spencer Horwitz","2/3"]];
+const OOO28=[["Billy Cook","1/3",false],["Cam Sanders","2/3*",true],["Endy Rodriguez","2/3*",true],["Evan Sisk","1/3",false],["Henry Davis","1/3",false],["Isaac Mattson","1/3",false],["Jhostynxon Garcia","2/3*",true],["Mason Montgomery","1/3",false],["Nick Yorke","1/3",false],["Thomas Harrington","2/3*",true],["Tyler Callihan","2/3*",true]];
+const MLFA_DATA=[["PP","Marcell Ozuna","FA","","","",false],["PP","Brandon Lowe","FA","","","",false],["PP","Ryan O'Hearn","$15M","FA","","",false],["PP","Joey Bart","$3.18M *","FA","","",true],["PP","Oneil Cruz","$6.50M *","ARB-2","FA","",true],["PP","Endy Rodriguez","$0.89M *","ARB-2","ARB-3","FA*",true],["PP","Henry Davis","$1.55M *","ARB-2","ARB-3","FA",true],["PP","Jared Triolo","$2.00M *","ARB-2","ARB-3","FA",true],["PP","Nick Gonzales","$1.90M *","ARB-2","ARB-3","FA",true],["P","Chris Devenski","FA","","","",false],["P","Dennis Santana","FA","","","",false],["P","Gregory Soto","FA","","","",false],["P","Jose Urquidy","FA","","","",false],["P","Justin Lawrence","$1.73M *","ARB-2","FA","",true],["P","Yohan Ramirez","$1.45M *","ARB-2","FA","",true],["P","Mitch Keller","$18M","$20M","FA","",false],["P","Carmen Mlodzinski","$2.10M *","ARB-2","ARB-3","FA",true],["P","Jared Jones","$1.75M *","ARB-2","ARB-3","FA",true],["P","Paul Skenes","$11.00M *","ARB-2","ARB-3","FA",true]];
+const R5_T1=["Axiel Plaz","Khristian Curtis","Termarr Johnson"];
+const R5_T2=["Cy Nielson","Mitch Jebb","Tony Blanco","Yordany De Los Santos"];
+const R5_T3=["Alessandro Ercolani","Justin Meis","Keiner Delgado","Michael Darrell-Hicks","Nick Cimillo"];
+const MNFA_FT=["Enmanuel Valdez","Isaias Uribe","Javier Rivas","Jesus Castillo","Omar Alfonzo","Ryan Harbin"];
+const MNFA_FT_BOLD=new Set(["Javier Rivas","Omar Alfonzo"]);
+const MNFA_25=["Beau Burrows","Carson Fulmer","Chris Devenski","Davis Wendzel","Dom Fletcher","Dom Pipkin","Jarod Bayless","Joe La Sorsa","Michael Clevinger","Noah Davis","Noah Murdock","Oddanier Mosqueda","PJ Hilson","Ronny Simon"];
+const MNFA_25_BOLD=new Set(["Ronny Simon"]);
+
+function isNt(n){return NT_PLAYERS.has(n)||NT_PLAYERS.has(n.replace(' *',''));}
+function parseMil(s){const n=parseFloat((s||'').replace(/[^0-9.]/g,''));return isNaN(n)?0:n;}
+function delBtn(row){const td=document.createElement('td');const b=document.createElement('button');b.className='del';b.textContent='✕';b.onclick=()=>row.remove();td.appendChild(b);return td;}
+function ec(val,left,bold,cls){const td=document.createElement('td');if(left)td.classList.add('L');if(cls)td.classList.add(cls);td.contentEditable="true";td.textContent=val;if(bold)td.style.fontWeight="700";return td;}
+
+function nameCell(name,isCurr,isBold){
+  const td=document.createElement('td');td.classList.add('L');
+  const url=URLS[name];
+  const isOoo=ARB_OOO.has(name);
+  const isNtP=isNt(name);
+  if(isCurr)td.classList.add('c-ooo-curr');
+  if(url){
+    const a=document.createElement('a');a.href=url;a.target="_blank";a.className='plink';a.textContent=name;
+    if(isBold||isOoo)a.style.fontWeight='700';
+    if(isNtP&&!isCurr)a.style.color='#B8860B';
+    td.appendChild(a);
+  } else {
+    td.contentEditable="true";td.textContent=name;
+    if(isBold||isOoo)td.style.fontWeight='700';
+    if(isNtP&&!isCurr)td.style.color='#B8860B';
+  }
+  if(isNtP&&!isCurr){const tag=document.createElement('span');tag.className='nt-tag';tag.textContent='NT?';td.appendChild(document.createTextNode(' '));td.appendChild(tag);}
+  return td;
+}
+
+function buildArb(){
+  const tb=document.getElementById('arb-body');
+  ARB_DATA.forEach(r=>{
+    const tr=document.createElement('tr');
+    tr.appendChild(nameCell(r[0],false,ARB_OOO.has(r[0])));
+    const s26=ec(r[4]);const raise=ec(r[5],false,false,'c-raise');raise.dataset.auto="1";const s27=ec(r[6]);
+    [ec(r[1]),ec(r[2]),ec(r[3]),s26,raise,s27].forEach(td=>tr.appendChild(td));
+    function upd(){if(raise.dataset.auto==="1"){const d=parseMil(s27.textContent)-parseMil(s26.textContent);raise.textContent=(d>=0?'+':'')+`$${Math.abs(d).toFixed(2)}M`;}}
+    s26.addEventListener('blur',upd);s27.addEventListener('blur',upd);raise.addEventListener('focus',()=>{raise.dataset.auto="0";});
+    tr.appendChild(delBtn(tr));tb.appendChild(tr);
+  });
+}
+function addArb(){
+  const tb=document.getElementById('arb-body');const tr=document.createElement('tr');
+  const nd=ec('New Player',true);tr.appendChild(nd);
+  const s26=ec('$0.00M');const raise=ec('+$0.00M',false,false,'c-raise');raise.dataset.auto="1";const s27=ec('$0.00M');
+  [ec('0.000'),ec('—'),ec('ARB-1'),s26,raise,s27].forEach(td=>tr.appendChild(td));
+  function upd(){if(raise.dataset.auto==="1"){const d=parseMil(s27.textContent)-parseMil(s26.textContent);raise.textContent=(d>=0?'+':'')+`$${Math.abs(d).toFixed(2)}M`;}}
+  s26.addEventListener('blur',upd);s27.addEventListener('blur',upd);raise.addEventListener('focus',()=>{raise.dataset.auto="0";});
+  tr.appendChild(delBtn(tr));tb.appendChild(tr);nd.focus();
+}
+
+function tierBadge(t){const s=document.createElement('span');s.className='tier-badge t'+t;s.textContent='Tier '+t;return s;}
+function buildNt(){
+  const tb=document.getElementById('nt-body');let last=0;
+  NT_DATA.forEach(r=>{
+    if(r[0]!==last){last=r[0];const hr=document.createElement('tr');hr.className='grp-lbl';const htd=document.createElement('td');htd.colSpan=6;htd.appendChild(tierBadge(r[0]));htd.appendChild(document.createTextNode(' '+(r[0]===1?'Likely Non-Tender':r[0]===2?'Borderline':'Worth Monitoring')));hr.appendChild(htd);tb.appendChild(hr);}
+    const tr=document.createElement('tr');tr.className='nt-row-'+r[0];
+    const tt=document.createElement('td');tt.appendChild(tierBadge(r[0]));tr.appendChild(tt);
+    tr.appendChild(nameCell(r[1],false,true));
+    [r[2],r[3],r[4]].forEach(v=>{tr.appendChild(ec(v,false));});
+    tr.appendChild(delBtn(tr));tb.appendChild(tr);
+  });
+}
+function addNt(){
+  const tb=document.getElementById('nt-body');const tr=document.createElement('tr');tr.className='nt-row-2';
+  const tt=document.createElement('td');tt.appendChild(tierBadge(2));tr.appendChild(tt);
+  ['New Player','1','$0.00M','Notes'].forEach((v,i)=>{tr.appendChild(ec(v,i===0));});
+  tr.appendChild(delBtn(tr));tb.appendChild(tr);tr.querySelectorAll('td')[1].focus();
+}
+
+function buildOoo(bodyId,data,isCurr){
+  const tb=document.getElementById(bodyId);
+  data.forEach(r=>{
+    const tr=document.createElement('tr');
+    tr.appendChild(nameCell(r[0],isCurr,isCurr));
+    const optTd=ec(r[1]);
+    if(isCurr)optTd.classList.add('c-ooo-curr');
+    else if(r[2])optTd.classList.add('c-ooo-hi');
+    tr.appendChild(optTd);tr.appendChild(delBtn(tr));tb.appendChild(tr);
+  });
+}
+function addOoo(bodyId){
+  const tb=document.getElementById(bodyId);const tr=document.createElement('tr');
+  tr.appendChild(ec('New Player',true));tr.appendChild(ec('—'));
+  tr.appendChild(delBtn(tr));tb.appendChild(tr);tr.querySelector('td').focus();
+}
+
+function mlCell(val,isProj){
+  const td=document.createElement('td');td.contentEditable="true";td.textContent=val;
+  const applyClass=v=>{td.className='';if(v==="FA"||v==="FA*")td.classList.add('c-fa');else if(v.startsWith("ARB"))td.classList.add('c-arb');else if(v==="In Progress")td.classList.add('c-ip');else if(isProj&&v.includes("*")&&v.startsWith("$"))td.classList.add('c-proj');else if(v.startsWith("$"))td.classList.add('c-sal');};
+  applyClass(val.trim());td.addEventListener('blur',()=>applyClass(td.textContent.trim()));return td;
+}
+function buildMlfa(){
+  const tb=document.getElementById('mlfa-body');let lastGrp='';
+  const projSet=new Set(MLFA_DATA.filter(r=>r[6]).map(r=>r[1]));
+  MLFA_DATA.forEach(r=>{
+    const grp=r[0]==="PP"?"Position Players":"Pitchers";
+    if(r[0]!==lastGrp){lastGrp=r[0];const gr=document.createElement('tr');gr.className='grp-lbl';const gtd=document.createElement('td');gtd.colSpan=6;gtd.textContent=grp;gtd.contentEditable="true";gr.appendChild(gtd);tb.appendChild(gr);}
+    const tr=document.createElement('tr');
+    tr.appendChild(nameCell(r[1],false,false));
+    [r[2],r[3],r[4],r[5]].forEach(v=>tr.appendChild(mlCell(v,projSet.has(r[1]))));
+    tr.appendChild(delBtn(tr));tb.appendChild(tr);
+  });
+}
+function addMlfa(){
+  const tb=document.getElementById('mlfa-body');const tr=document.createElement('tr');
+  const nt=ec('New Player',true);tr.appendChild(nt);
+  ['In Progress','ARB-2','ARB-3','FA'].forEach(v=>tr.appendChild(mlCell(v,false)));
+  tr.appendChild(delBtn(tr));tb.appendChild(tr);nt.focus();
+}
+
+function buildR5(){
+  const tb=document.getElementById('r5-body');
+  const tiers=[{label:'TIER 1 — LIKELY PROTECT',data:[...R5_T1].sort(),bg:'var(--nt1-bg)',fg:'var(--nt1-fg)',bold:true},{label:'TIER 2 — BORDERLINE PROTECT',data:[...R5_T2].sort(),bg:'var(--nt2-bg)',fg:'var(--nt2-fg)',bold:false},{label:'TIER 3 — MONITOR',data:[...R5_T3].sort(),bg:'var(--nt3-bg)',fg:'var(--nt3-fg)',bold:false}];
+  tiers.forEach(tier=>{
+    const hr=document.createElement('tr');const htd=document.createElement('td');htd.colSpan=2;htd.textContent=tier.label;htd.style.cssText=`font-size:8px;font-weight:700;padding:2px 6px;border:.5px solid #ddd;background:${tier.bg};color:${tier.fg}`;hr.appendChild(htd);tb.appendChild(hr);
+    tier.data.forEach(name=>{
+      const tr=document.createElement('tr');const td=document.createElement('td');td.classList.add('L');td.style.cssText=`background:${tier.bg};color:${tier.fg};border:.5px solid #ddd;padding:3px 6px`;
+      const url=URLS[name];
+      if(url){const a=document.createElement('a');a.href=url;a.target="_blank";a.className='plink';a.textContent=name;if(tier.bold)a.style.fontWeight='700';a.style.color=tier.fg;td.appendChild(a);}
+      else{td.contentEditable="true";td.textContent=name;if(tier.bold)td.style.fontWeight='700';}
+      tr.appendChild(td);tr.appendChild(delBtn(tr));tb.appendChild(tr);
+    });
+  });
+}
+
+function buildSimple(bodyId,data,boldSet){
+  const tb=document.getElementById(bodyId);
+  [...data].sort((a,b)=>a.localeCompare(b)).forEach(name=>{
+    const tr=document.createElement('tr');const td=document.createElement('td');td.classList.add('L');
+    const url=URLS[name];
+    if(url){const a=document.createElement('a');a.href=url;a.target="_blank";a.className='plink';a.textContent=name;if(boldSet&&boldSet.has(name))a.style.fontWeight='700';td.appendChild(a);}
+    else{td.contentEditable="true";td.textContent=name;if(boldSet&&boldSet.has(name))td.style.fontWeight='700';}
+    tr.appendChild(td);tr.appendChild(delBtn(tr));tb.appendChild(tr);
+  });
+}
+function addSimple(bodyId){const tb=document.getElementById(bodyId);const tr=document.createElement('tr');const td=ec('New Player',true);tr.appendChild(td);tr.appendChild(delBtn(tr));tb.appendChild(tr);td.focus();}
+
+function gatherData(){
+  const lines=['PITTSBURGH PIRATES — 2027 ROSTER OUTLOOK','INTERNAL / CONFIDENTIAL',''];
+  const sec=(label,sel,skip)=>{lines.push('=== '+label+' ===');document.querySelectorAll(sel).forEach(tr=>{if(skip&&tr.classList.contains(skip))return;lines.push(Array.from(tr.querySelectorAll('td:not(:last-child)')).map(t=>t.textContent.replace('NT?','').trim()).join('\t'));});lines.push('');};
+  sec('ARBITRATION CLASS','#arb-body tr');sec('NON-TENDER CANDIDATES','#nt-body tr','grp-lbl');sec('2026 CURRENT OOO','#ooo-curr-body tr');sec('2027 OOO','#ooo27-body tr');sec('2028 OOO','#ooo28-body tr');sec('MLFA OUTLOOK','#mlfa-body tr','grp-lbl');sec('R5 ELIGIBLES','#r5-body tr');sec('MNFA FIRST TIME','#mnfa-ft-body tr');sec('2026 MNFA PRIOR MNFA','#mnfa-25-body tr');
+  return lines.join('\n');
+}
+function doExport(){navigator.clipboard.writeText(gatherData()).then(()=>{const s=document.getElementById('copy-status');s.style.display='inline';setTimeout(()=>s.style.display='none',2500);}).catch(()=>showExportBox());}
+function showExportBox(){document.getElementById('export-text').value=gatherData();document.getElementById('export-box').style.display='block';document.getElementById('export-text').select();}
+
+buildArb();buildNt();
+buildOoo('ooo-curr-body',OOO_CURR,true);
+buildOoo('ooo27-body',OOO27.map(r=>[r[0],r[1],false]),false);
+buildOoo('ooo28-body',OOO28,false);
+buildMlfa();buildR5();
+buildSimple('mnfa-ft-body',MNFA_FT,MNFA_FT_BOLD);
+buildSimple('mnfa-25-body',MNFA_25,MNFA_25_BOLD);
+</script>
+</body>
+</html>
